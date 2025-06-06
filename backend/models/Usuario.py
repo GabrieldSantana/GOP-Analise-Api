@@ -22,7 +22,7 @@ class Usuario:
 
     def to_dict(self):
         return {
-            '_id': self._id,
+            # '_id': self._id,
             'cpf': self.cpf,
             'email': self.email,
             'nome': self.nome,

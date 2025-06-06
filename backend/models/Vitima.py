@@ -3,9 +3,9 @@ from datetime import datetime
 
 class Vitima:
     def __init__(self, _id=None, casoId=None, NIC=None, nome=None, genero=None, idade=None, 
-                 cpf=None, endereco=None, etnia=None, odontograma=None, anotacaoAnatomia=None, createdAt=None):
-        self._id = ObjectId(_id) if _id else None
-        self.casoId = ObjectId(casoId) if casoId else None
+                cpf=None, endereco=None, etnia=None, odontograma=None, anotacaoAnatomia=None, createdAt=None):
+        self._id = _id if _id else None
+        self.casoId = casoId if casoId else None
         self.NIC = NIC
         self.nome = nome
         self.genero = genero
@@ -41,8 +41,8 @@ class Vitima:
 
     def to_dict(self):
         return {
-            '_id': self._id,
-            'casoId': self.casoId,
+            # '_id': self._id,
+            # 'casoId': self.casoId,
             'NIC': self.NIC,
             'nome': self.nome,
             'genero': self.genero,

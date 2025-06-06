@@ -9,7 +9,7 @@ class Caso:
         self.local = local
         self.descricao = descricao
         self.tipo = tipo
-        self.peritoResponsavel = ObjectId(peritoResponsavel) if peritoResponsavel else None
+        self.peritoResponsavel = peritoResponsavel
         self.status = status if status else 'Em andamento'
         self.dataHora = dataHora
         self.createdAt = createdAt if createdAt else datetime.now()
@@ -32,7 +32,6 @@ class Caso:
 
     def to_dict(self):
         return {
-            '_id': self._id,
             'nome': self.nome,
             'local': self.local,
             'descricao': self.descricao,

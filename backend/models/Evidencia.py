@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Evidencia:
     def __init__(self, _id=None, casoId=None, arquivoId=None, nomeArquivo=None, tipoArquivo=None, 
-                 tipoEvidencia=None, descricao=None, coletadoPor=None, createdAt=None):
+                tipoEvidencia=None, descricao=None, coletadoPor=None, createdAt=None):
         self._id = ObjectId(_id) if _id else None
         self.casoId = ObjectId(casoId) if casoId else None
         self.arquivoId = ObjectId(arquivoId) if arquivoId else None
@@ -30,9 +30,8 @@ class Evidencia:
 
     def to_dict(self):
         return {
-            '_id': self._id,
-            'casoId': self.casoId,
-            'arquivoId': self.arquivoId,
+            # 'casoId': self.casoId,
+            # 'arquivoId': self.arquivoId,
             'nomeArquivo': self.nomeArquivo,
             'tipoArquivo': self.tipoArquivo,
             'tipoEvidencia': self.tipoEvidencia,
