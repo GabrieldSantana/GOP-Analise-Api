@@ -1,8 +1,8 @@
-from services.database import Database
-from models.usuario import Usuario
-from models.evidencia import Evidencia
-from models.vitima import Vitima
-from models.caso import Caso
+from backend.services.database import Database
+from backend.models.usuario import Usuario
+from backend.models.evidencia import Evidencia
+from backend.models.vitima import Vitima
+from backend.models.caso import Caso
 import pickle
 import os
 import pandas as pd

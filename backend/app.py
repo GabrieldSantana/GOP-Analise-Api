@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-from routes.api import api_bp
+from backend.routes.api import api_bp
 from dotenv import load_dotenv
 import os
 
@@ -14,7 +14,7 @@ def create_app():
     app.config['COLLECTION_NAME'] = os.getenv('COLLECTION_NAME')
     
     # Habilitar CORS para permitir requisições do frontend
-    CORS(app)
+    CORS(app, resources={r"/api/*": {"origins": "*"}})
     
     # Registrar blueprint de rotas
     app.register_blueprint(api_bp, url_prefix='/api')

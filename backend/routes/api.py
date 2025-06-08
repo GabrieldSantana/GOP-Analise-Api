@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from services.data_service import get_data_for_dashboard, get_casos_por_perito, get_vitimas_estatisticas, get_casos_distribuicao, get_evidencias_por_caso
+from backend.services.data_service import get_data_for_dashboard, get_casos_por_perito, get_vitimas_estatisticas, get_casos_distribuicao, get_evidencias_por_caso
 
 api_bp = Blueprint('api', __name__)
 

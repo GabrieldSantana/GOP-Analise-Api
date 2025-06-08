@@ -4,7 +4,7 @@ from datetime import datetime
 class Caso:
     def __init__(self, _id=None, nome=None, local=None, descricao=None, tipo=None, 
                  peritoResponsavel=None, status=None, dataHora=None, createdAt=None, dataFechamento=None):
-        self._id = ObjectId(_id) if _id else None
+        self._id = _id if _id else None
         self.nome = nome
         self.local = local
         self.descricao = descricao
@@ -36,7 +36,7 @@ class Caso:
             'local': self.local,
             'descricao': self.descricao,
             'tipo': self.tipo,
-            'peritoResponsavel': self.peritoResponsavel,
+            # 'peritoResponsavel': self.peritoResponsavel,
             'status': self.status,
             'dataHora': self.dataHora,
             'createdAt': self.createdAt,
