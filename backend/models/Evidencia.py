@@ -4,14 +4,14 @@ from datetime import datetime
 class Evidencia:
     def __init__(self, _id=None, casoId=None, arquivoId=None, nomeArquivo=None, tipoArquivo=None, 
                 tipoEvidencia=None, descricao=None, coletadoPor=None, createdAt=None):
-        self._id = ObjectId(_id) if _id else None
-        self.casoId = ObjectId(casoId) if casoId else None
-        self.arquivoId = ObjectId(arquivoId) if arquivoId else None
+        self._id = _id if _id else None
+        self.casoId = casoId if casoId else None
+        self.arquivoId = arquivoId if arquivoId else None
         self.nomeArquivo = nomeArquivo
         self.tipoArquivo = tipoArquivo
         self.tipoEvidencia = tipoEvidencia
         self.descricao = descricao
-        self.coletadoPor = ObjectId(coletadoPor) if coletadoPor else None
+        self.coletadoPor = coletadoPor if coletadoPor else None
         self.createdAt = createdAt if createdAt else datetime.now()
 
     @classmethod
@@ -36,6 +36,6 @@ class Evidencia:
             'tipoArquivo': self.tipoArquivo,
             'tipoEvidencia': self.tipoEvidencia,
             'descricao': self.descricao,
-            'coletadoPor': self.coletadoPor,
+            # 'coletadoPor': self.coletadoPor,
             'createdAt': self.createdAt
         }
