@@ -19,6 +19,11 @@ def create_app():
     # Registrar blueprint de rotas
     app.register_blueprint(api_bp, url_prefix='/api')
     
+    # Adicionar rota raiz para health check
+    @app.route('/')
+    def health_check():
+        return {'status': 'ok'}, 200
+    
     return app
 
 if __name__ == '__main__':
