@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
 import requests
-
 from dashboard.dashboard_peritos import run_dashboard_peritos
 from dashboard.dashboard_vitimas import run_dashboard_vitimas
 from dashboard.dashboard_casos import run_dashboard_casos
 from dashboard.dashboard_evidencias import run_dashboard_evidencias
-from dashboard.dashboard_coeficientes import run_dashboard_coeficientes
+
 
 from modelo_ml.modelos_dashboard import executar_modelo_regressao, executar_modelo_kmeans
 
@@ -52,7 +51,6 @@ def main():
             "Estatísticas de Vítimas", 
             "Distribuição de Casos", 
             "Evidências", 
-            "Coeficientes",
             "Modelos de Machine Learning"
         )
     )
@@ -68,9 +66,6 @@ def main():
 
     elif option == "Evidências":
         run_dashboard_evidencias()
-
-    elif option == "Coeficientes":
-        run_dashboard_coeficientes()
 
     elif option == "Modelos de Machine Learning":
         st.title("Modelos de Machine Learning")
