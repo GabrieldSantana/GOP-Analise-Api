@@ -9,3 +9,4 @@ dotenv
 streamlit
 plotly
 matplotlib
+seaborn
