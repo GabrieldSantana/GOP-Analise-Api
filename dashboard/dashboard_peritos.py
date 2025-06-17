@@ -1,18 +1,13 @@
 import requests
 import streamlit as st
 import plotly.express as px
+import pandas as pd
 
 def run_dashboard_peritos():
     st.title("Casos por Perito")
 
-    nome_perito = st.text_input("Filtrar por nome do perito (opcional):")
-
-    params = {}
-    if nome_perito:
-        params['nome_perito'] = nome_perito
-
     url = "https://gop-analise-api.onrender.com/api/dashboard/peritos"
-    response = requests.get(url, params=params)
+    response = requests.get(url)
 
     if response.status_code == 200:
         data = response.json()
@@ -24,7 +19,31 @@ def run_dashboard_peritos():
         if casos:
             nomes = list(casos.keys())
             valores = list(casos.values())
-            fig = px.bar(x=nomes, y=valores, labels={"x":"Perito", "y":"Número de Casos"}, title="Casos por Perito")
+
+            # Criação do DataFrame
+            df = pd.DataFrame({
+                "Perito": nomes,
+                "Número de Casos": valores
+            })
+
+            # Filtro na barra lateral
+            perito_selecionado = st.sidebar.selectbox(
+                "Filtrar por nome do perito:",
+                options=["Todos"] + nomes,
+                index=0
+            )
+
+            if perito_selecionado != "Todos":
+                df = df[df["Perito"] == perito_selecionado]
+
+            # Gráfico com cores distintas
+            fig = px.bar(
+                df,
+                x="Perito",
+                y="Número de Casos",
+                color="Perito",
+                title="Casos por Perito"
+            )
             st.plotly_chart(fig)
         else:
             st.write("Nenhum dado encontrado.")
